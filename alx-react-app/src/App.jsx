@@ -1,4 +1,5 @@
 import WelcomeMessage from './components/WelcomeMessage'
+import UserProfile from './components/UserProfile';
 import Header from './components/Header' 
 import MainContent from './components/MainContent'
 import Footer from './components/Footer'
@@ -13,6 +14,9 @@ function App() {
   return (
     <>
       <WelcomeMessage />
+      <UserProfile name="Roberta Efia Addae Smith" 
+      age={20} 
+      bio="I am a passionate React developer." />
       <Header />
       <MainContent />
       <Footer />
