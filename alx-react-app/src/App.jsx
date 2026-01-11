@@ -14,9 +14,7 @@ function App() {
   return (
     <>
       <WelcomeMessage />
-      <UserProfile name="Roberta Efia Addae Smith" 
-      age={20} 
-      bio="I am a passionate React developer." />
+     <UserProfile name="Alice" age="25" bio="Loves hiking and photography" />
       <Header />
       <MainContent />
       <Footer />
