@@ -2,6 +2,7 @@ import UserProfile from './components/UserProfile'
 import WelcomeMessage from './components/WelcomeMessage'
 import Header from './components/Header'
 import MainContent from './components/MainContent'
+import Counter from './components/Counter'
 import Footer from './components/Footer'
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
@@ -12,12 +13,14 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    
+
     <>
       <WelcomeMessage />
       <Header />
       <MainContent />
+      <Counter />
       <Footer />
+      
 
       <div> 
         <UserProfile name="Alice" age={25} bio="Loves hiking and photography." />
