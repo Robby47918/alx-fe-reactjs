@@ -1,41 +1,40 @@
-import UserContext from './UserContext'
-import ProfilePage from './ProfilePage'
-import UserProfile from './components/UserProfile'
-import WelcomeMessage from './components/WelcomeMessage'
-import Header from './components/Header'
-import MainContent from './components/MainContent'
-import Counter from './components/Counter'
-import Footer from './components/Footer'
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import UserContext from "./UserContext";
+import ProfilePage from "./ProfilePage";
+import UserProfile from "./components/UserProfile";
+import WelcomeMessage from "./components/WelcomeMessage";
+import Header from "./components/Header";
+import MainContent from "./components/MainContent";
+import Counter from "./components/Counter";
+import Footer from "./components/Footer";
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
- 
+  const [count, setCount] = useState(0);
+  const userData = { name: "Jane Doe", email: "jane.doe@example.com" };
 
   return (
-
     <>
       <WelcomeMessage />
       <Header />
       <MainContent />
       <Counter />
       <Footer />
-      
 
-      <div> 
-        <UserContext.Provider value={{ name: 'John Doe', age: 30 }}>
+      <div>
+        <UserContext.Provider value={{userData}}>
           <ProfilePage />
         </UserContext.Provider>
-
-
       </div>
 
-      <div> 
-
-        <UserProfile name="Alice" age={25} bio="Loves hiking and photography." />
+      <div>
+        <UserProfile
+          name="Alice"
+          age={25}
+          bio="Loves hiking and photography."
+        />
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
@@ -56,7 +55,7 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
     </>
-  )
+  );
 }
 
 export default App;
