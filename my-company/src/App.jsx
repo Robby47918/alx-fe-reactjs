@@ -3,7 +3,7 @@ import Navbar from "./components/Navbar";
 import Home from "./Home"; 
 import About from "./About"; 
 import Services from "./Services"; 
-import Contact from "./Contact";
+import Contact from "./components/Contact";
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
