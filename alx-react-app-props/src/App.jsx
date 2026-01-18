@@ -1,4 +1,4 @@
-import UserContext from "./UserContext";
+import UserContext from "./components/UserContext";
 import ProfilePage from "./ProfilePage";
 import UserProfile from "./components/UserProfile";
 import WelcomeMessage from "./components/WelcomeMessage";
@@ -24,7 +24,7 @@ function App() {
       <Footer />
 
       <div>
-        <UserContext.Provider value={{userData}}>
+        <UserContext.Provider value={{ userData }}>
           <ProfilePage />
         </UserContext.Provider>
       </div>
