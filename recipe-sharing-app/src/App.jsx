@@ -17,11 +17,19 @@ function App() {
 
   return (
     <>
-      <BrowserRouter>
+      
         <div style={{ padding: "20px" }}>
           <h1>
             <Link to="/">Recipe Sharing App</Link>
           </h1>
+          
+          <nav style={{ marginBottom: "16px" }}>
+          <Link to="/">Home</Link> |{" "}
+          <Link to="/add">Add Recipe</Link> |{" "}
+          <Link to="/favorites">Favorites</Link> |{" "}
+          <Link to="/recommendations">Recommendations</Link> |{" "}
+          <Link to="/search">Search</Link>
+          </nav>
         
           <Routes>
             <Route path="/search" element={<SearchBar />} />
@@ -34,8 +42,8 @@ function App() {
             <Route path="/recipe/:id" element={<RecipeDetails />} />
           </Routes>
         </div>
-      </BrowserRouter>
-      <recipeStore />
+      
+      
 
       <div>
         <a href="https://vite.dev" target="_blank">

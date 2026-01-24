@@ -1,7 +1,10 @@
-import create from "zustand";
+import { create } from "zustand";
 
 export const useRecipeStore = create((set, get) => ({
-  recipes: [],
+  recipes: [
+    { id: 1, title: "Jollof Rice", description: "A popular West African dish." },
+     { id: 2, title: "Fufu and Light Soup", description: "Traditional Ghanaian meal." }
+  ],
   favorites: [],
   recommendations: [],
   searchTerm: "",
@@ -35,7 +38,7 @@ export const useRecipeStore = create((set, get) => ({
     );
     set({ recommendations: recommended });
   },
-  
+
   addRecipe: (newRecipe) =>
     set((state) => ({ recipes: [...state.recipes, newRecipe] })),
   setRecipes: (recipes) => set({ recipes }),
@@ -52,4 +55,3 @@ export const useRecipeStore = create((set, get) => ({
     })),
 }));
 
-export default useRecipeStore;
