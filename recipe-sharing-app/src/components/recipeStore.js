@@ -1,6 +1,6 @@
 import create from "zustand";
 
-const useRecipeStore = create((set, get) => ({
+export const useRecipeStore = create((set, get) => ({
   recipes: [],
   favorites: [],
   recommendations: [],
@@ -8,7 +8,6 @@ const useRecipeStore = create((set, get) => ({
   setSearchTerm: (term) => set({ searchTerm: term }),
 
   filteredRecipes: [],
-
   filterRecipes: () => {
     set((state) => ({
       filteredRecipes: state.recipes.filter((recipe) =>
@@ -36,6 +35,7 @@ const useRecipeStore = create((set, get) => ({
     );
     set({ recommendations: recommended });
   },
+  
   addRecipe: (newRecipe) =>
     set((state) => ({ recipes: [...state.recipes, newRecipe] })),
   setRecipes: (recipes) => set({ recipes }),
