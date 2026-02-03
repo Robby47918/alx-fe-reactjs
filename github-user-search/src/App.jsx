@@ -19,7 +19,7 @@ function App() {
       <div>
         <h1>Github User Search</h1>
         <Search />
-        <button onClick={handleSearch}>Search for octocat</button>
+        <button onClick={handleSearch}>Press</button>
         {user && (
           <div>
             <p>{user.name}</p>
