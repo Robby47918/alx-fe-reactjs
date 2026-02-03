@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import SearchBar from './components/SearchBar.jsx'
 import { searchUser } from './services/githubAp'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
@@ -16,6 +17,7 @@ function App() {
   return (
     <>
       <div>
+        <SearchBar />
         <h1>Github User Search</h1>
         <button onClick={handleSearch}>Search for octocat</button>
         {user && (
