@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { searchUsers } from "../services/githubService";
+import { fetchUserData } from "../services/githubService";
 import axios from "axios";
 
 const Search = () => {
@@ -19,7 +19,7 @@ const Search = () => {
     setPage(1);
 
     try {
-      const data = await searchUsers(username, location, minRepos, 1);
+      const data = await fetchUserData(username, location, minRepos, 1);
       setUsers(data.items);
     // eslint-disable-next-line no-unused-vars
     } catch (err) {
@@ -33,7 +33,7 @@ const Search = () => {
     const nextPage = page + 1;
     setLoading(true);
     try {
-      const data = await searchUsers(username, location, minRepos, nextPage);
+      const data = await fetchUserData(username, location, minRepos, nextPage);
       setUsers((prev) => [...prev, ...data.items]);
       setPage(nextPage);
     // eslint-disable-next-line no-unused-vars
