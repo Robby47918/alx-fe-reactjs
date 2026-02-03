@@ -17,8 +17,8 @@ function App() {
   return (
     <>
       <div>
-        <SearchBar />
         <h1>Github User Search</h1>
+        <SearchBar />
         <button onClick={handleSearch}>Search for octocat</button>
         {user && (
           <div>
