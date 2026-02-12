@@ -30,6 +30,10 @@ const HomePage = () => {
           className="block mt-2 text-blue-500 hover:underline">
           View Recipe
         </Link>
+        
+        <Link to="/add-recipe" className="text-red-500 hover:underline ">
+        Add New Recipe
+        </Link>
       </div>
     </div>
   ))}
