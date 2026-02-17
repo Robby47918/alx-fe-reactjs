@@ -7,12 +7,12 @@ function RegistrationForm() {
         password: "",
     });
 
-    const [error, setError] = useState(""),
+    const [error, setError] = useState("");
 
-    const handleChange = (e) => {
-        const { name, value } =  e.target;
-        setFormData((prev) => ({ ...prev, [name]: value }))
-    };
+    function handleChange(e) {
+        const { name, value } = e.target;
+        setFormData((prev) => ({ ...prev, [name]: value }));
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
