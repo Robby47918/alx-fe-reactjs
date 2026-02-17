@@ -4,12 +4,11 @@ import { useQuery } from "react-query";
 function PostsComponent() {
   // useQuery handles fetching, caching, and updating
   const { data, error, isLoading, isError, refetch } = useQuery(
-    "posts",
+    "posts", fetchPosts);
     async () => {
       const res = await fetch("https://jsonplaceholder.typicode.com/posts");
       return res.json();
     }
-  );
 
   if (isLoading) return <p>Loading posts...</p>;
   if (isError) return <p>Error: {error.message}</p>;
