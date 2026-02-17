@@ -10,11 +10,19 @@
     "preview": "vite preview",
     "test": "jest"
   },
+  "jest": { 
+    "testEnvironment": "jsdom", 
+    "transform": { 
+      "^.+\\.[tj]sx?$": "babel-jest" 
+    }
+  },
   "dependencies": {
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.29.0",
+    "@babel/preset-react": "^7.28.5",
     "@eslint/js": "^9.39.1",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
