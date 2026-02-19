@@ -8,6 +8,10 @@ function RegistrationForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!username) {
+      setErrors("Username is required.");
+      return;
+    }
     if (!email) {
       setErrors("Email is required.");
       return;
