@@ -1,64 +1,56 @@
 import { useState } from "react";
 
 function RegistrationForm() {
-    const [formData, setFormData] = useState({
-        username: "",
-        email: "",
-        password: "",
-    });
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
-    const [error, setError] = useState("");
-
-    function handleChange(e) {
-        const { name, value } = e.target;
-        setFormData((prev) => ({ ...prev, [name]: value }));
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!username || !email || !password) {
+      setError("All fields are required.");
+      return;
     }
+    setError("");
+    console.log("Submitting:", { username, email, password });
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        if(!formData.username || !formData.email || !formData.password) {
-            setError("All fields are required.");
-            return;
-        }
-        setError("");
-        console.log("Submitting:", formData);
+    fetch("http://mockapi.io/register", {
+      method: "POST",
+      body: JSON.stringify({ username, email, password }),
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((res) => res.json())
+      .then((data) => console.log("Success:", data))
+      .catch((err) => console.error("Error:", err));
+  };
 
-        fetch('http://mockapi.io/register', {
-            method: "POST",
-            body: JSON.stringify(formData),
-            headers: { "Content-Type": "application/json" }
-        })
-        .then((res) => res.json())
-        .then((data) => console.log("Success:", data))
-        .catch((err) => console.error("Error:", err));
-    };
-
-    return (
-        <form onSubmit={handleSubmit}>
-            <input
-            name="username"
-            value={formData.username}
-            onChange={handleChange}
-            placeholder="Username"
-            />
-            <input
-            name="email"
-            type="email"
-            value={formData.email}
-            onChange={handleChange}
-            placeholder="Email"
-            />
-            <input
-            name="password"
-            type="password"
-            value={formData.password}
-            onChange={handleChange}
-            placeholder="Password"
-            />
-            {error && <p style={{ color: "red" }}>{error}</p>}
-            <button type="submit">Register</button>
-        </form>
-    );
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        name="username"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+        placeholder="Username"
+      />
+      <input
+        name="email"
+        type="email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        placeholder="Email"
+      />
+      <input
+        name="password"
+        type="password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        placeholder="Password"
+      />
+      {error && <p style={{ color: "red" }}>{error}</p>}
+      <button type="submit">Register</button>
+    </form>
+  );
 }
 
 export default RegistrationForm;
